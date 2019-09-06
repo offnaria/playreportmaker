@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>試合レポートメーカー</title>
+    <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.titech-buffaloes.com/wp/wp-content/themes/titech_buffs/game_detail/game_detail.css">
+    <script> //Adobe Fonts
+        (function (d) {
+            var config = {
+                kitId: 'egb7bon',
+                scriptTimeout: 3000,
+                async: true
+            },
+                h = d.documentElement, t = setTimeout(function () { h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive"; }, config.scriptTimeout), tk = d.createElement("script"), f = false, s = d.getElementsByTagName("script")[0], a; h.className += " wf-loading"; tk.src = 'https://use.typekit.net/' + config.kitId + '.js'; tk.async = true; tk.onload = tk.onreadystatechange = function () { a = this.readyState; if (f || a && a != "complete" && a != "loaded") return; f = true; clearTimeout(t); try { Typekit.load(config) } catch (e) { } }; s.parentNode.insertBefore(tk, s)
+        })(document);
+    </script>
+    <script src="main.js"></script>
+</head>
+<body>
+    <header>
+        <h1>BUFFALOES reportMaker();</h1>
+    </header>
+    <main>
+        <section class="editorTab" id="interface">
+            <ul id="process">
+                <li id="info">
+                    <h3>試合の基本的な情報を教えてください。</h3>
+                    <dl class="detail">
+                        <dt><label for="year">実施年</label></dt>
+                        <dd>
+                            <input type="text" name="year" id="year" placeholder="例）2019" style="width: 60px;"><label for="year">年</label>
+                        </dd>
+                        <dt><label for="season">実施シーズン</label></dt>
+                        <dd>
+                            <input type="text" name="season" id="season" placeholder="例）春" style="width: 50px;"><label for="season">シーズン</label>
+                        </dd>
+                        <dt><label for="playNumber">節</label></dt>
+                        <dd>
+                            <label for="playNumber">第</label><input type="text" name="playNumber" id="playNumber" placeholder="例）一" style="width: 50px;"><label for="playNumber">節</label>
+                        </dd>
+                        <dt><label for="opponent">対戦校</label></dt>
+                        <dd>
+                            <input type="text" name="opponent" id="opponent" placeholder="例）一橋"><label for="opponent">大学戦</label>
+                        </dd>
+                        <dt><label for="date">日付</label></dt>
+                        <dd>
+                            <input type="text" name="date" id="date" placeholder="例）04/20 (土)" style="width: 90px;">
+                        </dd>
+                        <dt><label for="location">場所</label></dt>
+                        <dd>
+                            <input type="text" name="location" id="location" placeholder="例）東京工業大学大岡山Gr" style="width: 200px;">
+                        </dd>
+                    </dl>
+                    
+                    
+                    
+                </li>
+                <li id="score">
+                    <h3>試合の得点を教えてください。</h3>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td class="dd">東工大</td>
+                                <td><input type="text" id="tit1Q" size="3"></td>
+                                <td><input type="text" id="tit2Q" size="3"></td>
+                                <td><input type="text" id="tit3Q" size="3"></td>
+                                <td><input type="text" id="tit4Q" size="3"></td>
+                                <td class="total"><input type="text" id="titTotal" size="3"></td>
+                            </tr>
+                            <tr class="center">
+                                <td class="dd"></td>
+                                <td>1Q</td>
+                                <td>2Q</td>
+                                <td>3Q</td>
+                                <td>4Q</td>
+                                <td class="total">Total</td>
+                            </tr>
+                            <tr>
+                                <td class="dd">対戦校</td>
+                                <td><input type="text" id="opponent1Q" size="3"></td>
+                                <td><input type="text" id="opponent2Q" size="3"></td>
+                                <td><input type="text" id="opponent3Q" size="3"></td>
+                                <td><input type="text" id="opponent4Q" size="3"></td>
+                                <td class="total"><input type="text" id="opponentTotal" size="3"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </li>
+                <li id="images">
+                    <h3>試合写真の場所を教えてください。</h3>
+                    <small>
+                        <p>
+                            「WordPressダッシュボード」＞<a href="https://www.titech-buffaloes.com/wp/wp-admin/upload.php">
+                                「メディアライブラリ」</a>で画像を選択し、「リンクをコピー」の「/wp/」の部分からコピーしてください。
+                        </p>
+                        <p>
+                            ※2枚選択してください。
+                        </p>
+                        <ul>
+                            <li><label for="firstImg">1枚目：</label><input type="text" id="firstImg"></li>
+                            <li><label for="secondImg">2枚目：</label><input type="text" id="secondImg"></li>
+                            <!--
+                            <li><label for="thirdImg">3枚目：</label><input type="text" id="thirdImg"></li>
+                            <li><label for="fourthImg">4枚目：</label><input type="text" id="fourthImg"></li>
+                            -->
+                        </ul>
+                    </small>
+                </li>
+                <li id="sentence">
+                    <h3>試合レポート本文を記述してください。</h3>
+                    <textarea name="text" id="text"></textarea>
+                    <p>※改行2回で段落分けされます。</p>
+                </li>
+            </ul>
+            <footer>
+                <button id="reflectButton" class="btn"><i class="fas fa-sync"></i>&nbsp;反映</button>
+            </footer>
+        </section>
+        <section class="editorTab" id="preview">
+            <div id="area">
+                <div class="headLine">
+                    <div id="preSeasonEtc" class="small"></div>
+                    <div id="preOpponent" class="big"></div>
+                    <img src="https://www.titech-buffaloes.com/wp/wp-content/themes/titech_buffs/images/blueBuffs.png" alt="buffs" class="buffsImg ls-is-cached lazyloaded" data-src="https://www.titech-buffaloes.com/wp/wp-content/themes/titech_buffs/images/blueBuffs.png">
+                </div>
+                <div>
+                    <p class="subHeadLine">試合詳細</p>
+                </div>
+                <div>
+                    <p class="datePlace"></p>
+                </div>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="dd">東工大</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="total"></td>
+                        </tr>
+                        <tr class="center">
+                            <td class="dd"></td>
+                            <td>1Q</td>
+                            <td>2Q</td>
+                            <td>3Q</td>
+                            <td>4Q</td>
+                            <td class="total">Total</td>
+                        </tr>
+                        <tr>
+                            <td class="dd"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="total"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div id="imagePlace">
+                    <img id="img1" class="alignnone size-medium" alt="" width="48%">
+                    <img id="img2" class="alignnone size-medium" alt="" width="48%">
+                </div>
+                
+                <div>
+                    <p class="subHeadLine">試合レポート</p>
+                </div>
+                <div id="preReport"></div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <button id="makeButton" class="btn"><i class="far fa-check-circle"></i>&nbsp;HTML生成</button>
+    </footer>
+    <div id="viewHTML">
+        <p>以下のHTMLコードを固定ページエディタに貼り付けてください。</p>
+        <div id="viewCode"></div>
+        <div style="text-align: center;">
+            <button id="closeButton" class="btn"><i class="fas fa-window-close"></i>&nbsp;閉じる</button>
+        </div>
+    </div>
+</body>
+</html>

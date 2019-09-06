@@ -1,0 +1,265 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #7f8c8d;
+    font-family: toppan-bunkyu-midashi-go-std, sans-serif;
+    /* font-weight: 900; */
+    font-style: normal;
+}
+
+header {
+    background-color: #3498db;
+    text-align: center;
+    color: #ecf0f1;
+}
+
+header h1 {
+    margin: 0 auto 0;
+    font-family: 'Cairo', sans-serif;
+    font-weight: normal;
+}
+header::after {
+    content: "試合レポートのHTMLを生成!";
+}
+
+main {
+    height: 100%;
+}
+
+main, footer {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.editorTab {
+    margin: 5px;
+    border: black solid 2px;
+    padding: 10px;
+    box-sizing: border-box;
+    flex: 1 0 300px;
+    background-color: #ecf0f1;
+    min-height: 100vh;
+    border-radius: 10px;
+}
+.editorTab ul li {
+    list-style: none;
+    box-sizing: border-box;
+    margin: 2px;
+    font-size: 18px;
+}
+.editorTab h3 {
+    padding: 10px 0px;
+    padding-left: 5px;
+    border-left: solid 5px black;
+    border-bottom: solid 2px black;
+    margin-bottom: 10px;
+}
+#interface::before {
+    content: "Interface";
+    background: #f39c12;
+    color: #ecf0f1;
+    padding: 7px;
+    border-radius: 15px;
+}
+#preview::before {
+    content: "Preview";
+    background: #f39c12;
+    color: #ecf0f1;
+    padding: 7px;
+    border-radius: 15px;
+}
+#preview #area {
+    background: #292b2c;
+    color: #fff;
+	font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+	font-size: 1rem;
+	font-weight: 400;
+    line-height: 1.5;
+    margin: 10px 0;
+    padding: 20px;
+
+}
+
+.detail {
+    /*幅を100％に設定*/
+    width: 100%;
+    /*境界線を設定*/
+    border: 1px solid black;
+    /*フレックスボックスレイアウトに設定*/
+    display: flex;
+    /*フレックスボックスを横方向に設定*/
+    flex-direction: row;
+    /*フレックスボックスの折り返しを設定*/
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+/*detailクラス内のdtとddボックスのスタイル設定*/
+.detail dt, dd {
+    /*外余白を0pxに設定*/
+    margin: 0px;
+    /*内余白の上下を5px、左右を15pxに設定*/
+    padding: 5px 15px;
+    /*境界線を設定*/
+    border: 1px solid black;
+}
+/*detailクラス内のdtボックスのスタイル設定*/
+.detail dt {
+    /*太字に設定*/
+    font-weight: bold;
+    /*背景色を設定*/
+    background: gainsboro;
+    /*フレックスアイテムを幅30％で設定*/
+    flex: 1 0 30%;
+}
+/*detailクラス内のddボックスのスタイル設定*/
+.detail dd {
+    /*フレックスアイテムを幅70％で設定*/
+    flex: 1 0 70%;
+    font-size: 15px;
+}
+.detail input {
+    margin: 0 5px;
+    height: 40px;
+    justify-content: center;
+    padding: 0 10px;
+    text-align: center;
+}
+
+table, td, th {
+    color: rgb(240,240,240);
+    border: 3px solid rgb(90,90,90);
+    border-collapse: collapse;
+    text-align: center;
+}
+table {
+    width: 100%;
+    margin-bottom: 10px;
+	background-color: rgb(50,50,50);
+	position: relative;
+}
+.dd {
+	width: 80px;
+	font-size: 16px;
+	font-weight: 440;
+}
+td {
+	padding: 3px;
+	width: 30px;
+	height: 30px;
+}
+.center {
+	background-color: rgb(65,65,65);
+}
+
+#text {
+    width: 100%;
+    height: 300px;
+}
+
+.btn {
+    background: none;
+    /* border: 2px solid #000; */
+    font-style: bold;
+    padding: 12px 20px;
+    min-width: 200px;
+    margin: 10px auto;
+    cursor: pointer;
+    transition: color 0.4s linear;
+    position: relative;
+    z-index: 0;
+    font-family: toppan-bunkyu-midashi-go-std, sans-serif;
+    /* font-weight: 900; */
+    font-style: normal;
+}
+.btn:hover {
+    color: #fff;
+}
+.btn::before {
+    content:"";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /* background: #000; */
+    z-index: -1;
+    transition: transform 0.5s;
+    transform-origin: 0 0;
+    transition-timing-function: cubic-bezier(0.5, 1.6, 0.4, 0.7);
+    transform: scaleX(0);
+}
+.btn:hover::before {
+    transform: scaleX(1);
+}
+#reflectButton {
+    border: 2px solid #d35400;
+    color: #d35400;
+}
+#reflectButton:hover {
+    color: #fff;
+}
+#reflectButton::before {
+    background: #d35400;
+}
+#makeButton {
+    border: 2px solid #2980b9;
+    color: #2980b9;
+}
+#makeButton:hover {
+    color: #fff;
+}
+#makeButton::before {
+    background: #2980b9;
+}
+
+footer {
+    margin-top: auto;
+    border-top: #000 solid 2px;
+    background: #ecf0f1;
+}
+
+#viewHTML {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    overflow: scroll;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background: rgba(0,0,0,0.9);
+}
+
+#viewHTML p{
+      color: #FFF;
+      text-align: center;
+      font-size: 30px;
+      margin-top: 100px;
+      line-height: 32px;
+}
+
+#viewCode {
+    background: rgba(255, 255, 255, 0.534);
+    max-width: 1000px;
+    margin: 30px auto;
+    font-family: "メイリオ", sans-serif;
+    padding: 15px;
+    border: solid aliceblue 3px;
+}
+
+#closeButton {
+    border: 2px solid #fff;
+    color: #fff;
+}
+#closeButton:hover {
+    color: #000;
+}
+#closeButton::before {
+    background: #fff;
+}
