@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>BUFFALOES Roster JSON Generator</title>
+	<script>
+		'use strict'
+		document.addEventListener('DOMContentLoaded', function () {
+			const reflectBtn = document.getElementById('reflectBtn')
+			const outputArea = document.getElementById('outputJSON')
+			const number = document.getElementById('number')
+			const kanji = document.getElementById('kanji')
+			const hepburn = document.getElementById('hepburn')
+			const filename = document.getElementById('imgPath')
+			const grade = document.getElementById('grade')
+			const position = document.getElementById('pos')
+			const department = document.getElementById('department')
+			const highschool = document.getElementById('highschool')
+
+			let dataJSON = []
+
+			reflectBtn.addEventListener('click', function () {
+				let newData = {
+					num: parseInt(number.value),
+					name: {
+						kanji: kanji.value,
+						hepburn: hepburn.value
+					},
+					img: filename.value,
+					grade: parseInt(grade.value),
+					pos: position.value,
+					dept: department.value,
+					hs: highschool.value
+				}
+				dataJSON.push(newData)
+				outputArea.value = JSON.stringify(dataJSON, null, 2)
+			}, false)
+		}, false)
+	</script>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			height: 100%;
+			width: 100%;
+		}
+
+		#input {
+			display: inline-block;
+			height: 100%;
+			min-width: 450px;
+			background-color: azure;
+			border: black 2px solid;
+			padding: 10px;
+		}
+
+		#input div {
+			margin: 10px 0;
+		}
+
+		button {
+			border: none;
+			background: coral;
+			color: white;
+			font-weight: bold;
+			font-size: 25px;
+			box-shadow: black 2px 2px;
+		}
+
+		#output {
+			display: inline-block;
+			background-color: skyblue;
+			border: black 2px solid;
+			min-width: 450px;
+			height: 100%;
+			padding: 10px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="input">
+		<div>
+			<label for="number">背番号：</label>
+			<input type="text" name="number" id="number" placeholder="735">
+		</div>
+		<div>
+			<label for="kanji">名前（漢字）：</label>
+			<input type="text" name="kanji" id="kanji" placeholder="山田悠嗣">
+		</div>
+		<div>
+			<label for="hepburn">名前（<a href="https://www.ezairyu.mofa.go.jp/passport/hebon.html" target="_blank">ヘボン式表記</a>）：</label>
+			<input type="text" name="hepburn" id="hepburn" placeholder="Yamada Yuji">
+		</div>
+		<div>
+			<label for="imgPath">写真ファイル名：</label>
+			<input type="text" name="imgPath" id="imgPath" placeholder="mg_yamada.jpg">
+		</div>
+		<div>
+			<label for="grade">学年：</label>
+			<input type="text" name="grade" id="grade" placeholder="ℵ">
+		</div>
+		<div>
+			<label for="pos">ポジション：</label>
+			<input type="text" name="pos" id="pos" placeholder="MG">
+		</div>
+		<div>
+			<label for="department">所属：</label>
+			<input type="text" name="department" id="department" placeholder="情報理工学院∞系">
+		</div>
+		<div>
+			<label for="highschool">出身高校：</label>
+			<input type="text" name="highschool" id="highschool" placeholder="北海道立旭川東">
+		</div>
+		<button id="reflectBtn">入力</button>
+	</div>
+	<div id="output">
+		<div>JSONがここに出るよ．</div>
+		<textarea name="outputJSON" id="outputJSON" cols="50" rows="15"></textarea>
+	</div>
+</body>
+
+</html>
